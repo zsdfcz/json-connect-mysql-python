@@ -1,0 +1,12 @@
+{
+    "type": "audio",
+    "path": "/test/",
+    "list": 
+        {
+            "name": "K0001_TEST",
+            "format": "wav",
+            "sampleRate": 16000,
+            "bitRate": 16
+        }
+    
+}

@@ -1,0 +1,48 @@
+{
+    "type": "audio",
+    "path": "/test/",
+    "list": [
+        {
+            "name": "K0001_TEST",
+            "format": "wav",
+            "sampleRate": 16000,
+            "bitRate": 16
+        },
+        {
+            "name": "K0002_TEST",
+            "format": "wav",
+            "sampleRate": 16000,
+            "bitRate": 24
+        },
+        {
+            "name": "K0003_TEST",
+            "format": "wav",
+            "sampleRate": 16000,
+            "bitRate": 16
+        },
+        {
+            "name": "K0004_TEST",
+            "format": "wav",
+            "sampleRate": 16000,
+            "bitRate": 24
+        },
+        {
+            "name": "K0005_TEST",
+            "format": "wav",
+            "sampleRate": 16000,
+            "bitRate": 16
+        },
+        {
+            "name": "K0006_TEST",
+            "format": "wav",
+            "sampleRate": 16000,
+            "bitRate": 32
+        },
+        {
+            "name": "K0007_TEST",
+            "format": "wav",
+            "sampleRate": 16000,
+            "bitRate": 16
+        }
+    ]
+}
