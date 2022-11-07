@@ -28,6 +28,8 @@ db:
 
 
 11/07 바뀐점
-file name 입력 받기 -> 파일 읽기 -> DB연결 -> table check -> data INSERT ->
+file name 입력 받기 -> 파일 읽기 -> DB연결 -> table check -> data INSERT
+
+\n
 파일 읽기 ~~ 데이터입력  소요시간 측정
 
