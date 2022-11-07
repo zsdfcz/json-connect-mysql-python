@@ -1,12 +1,26 @@
 {
-    "type": "audio",
-    "path": "/test/",
-    "list": 
+    "type": "message",
+    "timestamp": 1667278971,
+    "list": [
         {
-            "name": "K0001_TEST",
-            "format": "wav",
-            "sampleRate": 16000,
-            "bitRate": 16
+            "text": "안녕ㅋㅋㅋㅋㅋ",
+            "timeOffset": 0
+        },
+        {
+            "text": "오늘 서울 식물원에 갔다 왔는데",
+            "timeOffset": 1000
+        },
+        {
+            "text": "꽃들이 너무 이쁜거야",
+            "timeOffset": 2500
+        },
+        {
+            "text": "너무 신나서 방방 뛰고 난리였다 ㅋㅋㅋ 글고 사진 엄청 찍었다",
+            "timeOffset": 3900
+        },
+        {
+            "text": "잘나온거 많이 나왔지 ㅎㅎ",
+            "timeOffset": 4200
         }
-    
+    ]
 }
