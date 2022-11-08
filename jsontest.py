@@ -42,9 +42,11 @@ def sql_settables(func, data):
     if rows==() :
         print('테이블 없음 -> 테이블 생성')
         if (data['type'] == 'audio'):
-            sql = 'CREATE TABLE {}(num INT NOT NULL AUTO_INCREMENT,path VARCHAR(100),format VARCHAR(20),sample_rate INT,bit_rate INT,PRIMARY KEY(num))CHARSET=utf8'.format(data['type'])
+            sql = 'CREATE TABLE {}(num INT NOT NULL AUTO_INCREMENT,path VARCHAR(100),format VARCHAR(20),sample_rate INT,bit_rate INT,PRIMARY KEY(num), UNIQUE INDEX (path))CHARSET=utf8'.format(data['type'])
+            ## UNIQUE KEY = path 중복방지 데이터 삽입시 IGNORE
         elif(data['type'] == 'message'):
-            sql = 'CREATE TABLE {}(num INT NOT NULL AUTO_INCREMENT,message VARCHAR(100),timestamp INT,PRIMARY KEY(num))CHARSET=utf8'.format(data['type'])
+            sql = 'CREATE TABLE {}(num INT NOT NULL AUTO_INCREMENT,message VARCHAR(100),timestamp INT,PRIMARY KEY(num), UNIQUE INDEX(timestamp))CHARSET=utf8'.format(data['type'])
+            ## UNIQUE KEY = timestamp 중복방지
         try: 
             func.execute(sql)
             return data['type']
@@ -52,12 +54,13 @@ def sql_settables(func, data):
             print('err')
     else :
         print('{} 테이블이 존재합니다. '.format(data['type']))
+        return data['type']
 
 
 def sql_insert(data, connect , type):
     print('DB에 데이터 Insert')
     if(type =='audio'):
-        sql = 'INSERT INTO {}(path, format, sample_rate, bit_rate) VALUES(%s,%s,%s,%s)'.format(data['type']) # path, format, simplerate, bitrate 
+        sql = 'INSERT IGNORE INTO {}(path, format, sample_rate, bit_rate) VALUES(%s,%s,%s,%s)'.format(data['type']) # path, format, simplerate, bitrate 
         tablepath = data['path']
         for v in data['list']:
             try: 
@@ -65,12 +68,14 @@ def sql_insert(data, connect , type):
             except:
                 print('err')
     elif(type == 'message'):
-        sql = 'INSERT INTO {}(message, timestamp) VALUES(%s,%s)'.format(data['type']) # path, format, simplerate, bitrate 
+        sql = 'INSERT IGNORE INTO {}(message, timestamp) VALUES(%s,%s)'.format(data['type']) # path, format, simplerate, bitrate 
         for v in data['list']:
             try: 
                 connect.execute(sql, [v['text'],data['timestamp'] + v['timeOffset']])
             except:
                 print('err')
+    else:
+        print("없거나 정해 지지 않은 Json 입니다.")
 
 
 def json_read(filename):
@@ -96,6 +101,7 @@ def main(filename):
             sql_insert(data , s, type)
     
 class timer:
+    '시간 측정'
     start_time = 0
 
     def  __enter__(self):
