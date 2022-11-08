@@ -30,7 +30,7 @@ db:
     
         - in_net
    
-   ports:
+    ports:
    
         - 8086:3306
       
@@ -48,4 +48,13 @@ file name 입력 받기 -> 파일 읽기 -> DB연결 -> table check -> data INSE
 
 
 파일 읽기 ~~ 데이터입력  소요시간 측정
+
+
+
+11/08 바뀐점
+
+
+DB INSERT 시에 중복방지
+
+err.json이 들어왔을 때 처리
 
